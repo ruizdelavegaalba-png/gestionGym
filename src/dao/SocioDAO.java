@@ -16,7 +16,7 @@ public class SocioDAO {
         this.emf = emf;
     }
 
-    // a. Inserción de un socio
+    
     public void insertarSocio(Socio socio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -25,7 +25,7 @@ public class SocioDAO {
         em.close();
     }
 
-    // b. Actualización de cualquier campo de un socio (salvo ID), según su ID
+    
     public void actualizarSocio(int id, String nombreCompleto, int edad, boolean vip) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -39,7 +39,7 @@ public class SocioDAO {
         em.close();
     }
 
-    // c. Borrado de un socio, según su ID
+ 
     public void borrarSocio(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -55,7 +55,7 @@ public class SocioDAO {
         em.close();
     }
 
-    // d. Asignar un Socio a un Gimnasio, según sus IDs
+
     public void asignarSocio(int idSocio, int idGimnasio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -69,7 +69,7 @@ public class SocioDAO {
         em.close();
     }
 
-    // e. Borrar a un Socio de un Gimnasio, según sus IDs
+    
     public void borrarSocioDeGimnasio(int idSocio, int idGimnasio) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -83,7 +83,7 @@ public class SocioDAO {
         em.close();
     }
 
-    // f. Obtener los Gimnasio a los que está apuntado un socio concreto, según su ID
+   
     public List<Gimnasio> obtenerGimnasios(int id) {
         EntityManager em = emf.createEntityManager();
         Socio socio = em.find(Socio.class, id);
@@ -93,7 +93,7 @@ public class SocioDAO {
         return gimnasios;
     }
 
-    // g. Obtener la media de edad de todos los socios
+    
     public double obtenerMediaEdad() {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Double> query = em.createQuery(
@@ -104,7 +104,7 @@ public class SocioDAO {
         return media;
     }
 
-    // h. Obtener los Socio que no están inscritos en ningún gimnasio
+    
     public List<Socio> obtenerSociosSinGimnasio() {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Socio> query = em.createQuery(
